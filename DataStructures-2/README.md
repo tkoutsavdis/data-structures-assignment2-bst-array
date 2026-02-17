@@ -8,22 +8,19 @@ This project implements a **contiguous memory Binary Search Tree** using a pre-a
 
 ## What It Does
 
-- **Array-Based BST**: Static binary search tree using a 3-element array representation (keys, left-pointers, right-pointers) with fixed pre-allocated capacity
-- **Dynamic BST**: Pointer-based binary search tree using Node objects with dynamic memory allocation
-- **Core Operations**:
-  - Insert elements into trees
-  - Search for specific values
-  - Range queries (find all elements between two bounds)
-  - In-order tree traversal
-- **Performance Metrics**:
-  - Execution time measurement (milliseconds for insertions, nanoseconds for searches)
-  - Operation counter via Singleton pattern to track recursive calls and comparisons
-  - Comparative analysis between implementation strategies
-- **Data Handling**:
-  - Binary file reading support (Big Endian format for Java compatibility)
-  - Load datasets from 50 up to 1,000,000 unique integers
-  - Random key selection and range boundary generation
-- **Interactive Console**: Menu-driven interface for manual tree operations and automated testing
+- **Array-Based Tree Storage**: Maintains N×3 integer matrix where each column represents a tree node
+- **Three-Row Array Structure**:
+  - **Row 0 (INFO)**: Stores integer key values; -1 indicates empty slot
+  - **Row 1 (LEFT)**: Indices pointing to left child positions; -1 for no left child
+  - **Row 2 (RIGHT)**: When node is active, points to right child; -1 means no right child
+- **AVAIL Free-List Management**: Maintains linked list of unoccupied array positions for efficient node reuse
+- **BST Operations**:
+  - Insert keys with automatic free-list allocation
+  - Search by key value with index-based traversal
+  - In-order traversal (left-root-right) for sorted output
+  - Range search queries finding all keys within bounds [k1, k2)
+- **Performance Tracking**: Operation counter tracks comparisons and assignments for algorithmic analysis
+- **Overflow Detection**: Prevents insertion when array capacity exhausted
 
 ## Quick Start
 ### Compilation & Execution
@@ -49,13 +46,6 @@ Launch the console and select from menu options:
 - **'z'**: Exit program
 
 For testing with large datasets, ensure binary test files are in the `testnumbers/` directory. Provide full file path when prompted.
-
-## Requirements
-
-- **Java Version**: 8+
-- **Memory**: 256MB minimum (for 1M element dataset)
-- **Storage**: ~150MB for all test binary files
-- **Device**: Any system with Java runtime
 
 ## Project Structure
 
