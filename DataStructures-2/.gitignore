@@ -1,0 +1,27 @@
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Eclipse
+.project
+.classpath
+.settings/
+.metadata/
+.recommenders/
+*.launch
+
+# VS Code
+.vscode/
+
+# Java build output (Eclipse default)
+bin/
+out/
+target/
+build/
+*.class
+
+# Archives (optional)
+*.jar
+*.war
+*.ear
